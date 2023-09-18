@@ -8,48 +8,28 @@
 </head>
 
 <body>
+    
+    <form>
+    <input type="button" value="Start machine" />
+  </form>
+  <p>The machine is stopped.</p>
 
-  <script></script>  
-    <console.log "Guess a number between 1 and 100"
-        input type="text"
-        button>Enter!/button
-        <button onClick="function playGame()">Enter!</button>      
-        
-        <const DICTIONARY = {
-        <youGuessedIt: "You guessed correctly></youGuessedIt:>
-        <tooLow: "Your guess was too low"></tooLow:>
-        <tooHigh: "Your guess was too high"></tooHigh:>
-        }
-        
-        <async function playGame() {
-            const randomNumber = Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1)) + MIN_NUMBER;
-            console.log (`${DICTIONARY.guessANumber}`);
-          
-            while (isPlaying) {
-              const answer = await rl.question(DICTIONARY.yourGuess);
-              const number = parseInt(answer);
-          
-              if (isNaN(number) || number < MIN_NUMBER || number > MAX_NUMBER) {
-                console.log(`${DICTIONARY.invalidInput}`); 
-              } else {
-                totalGuesses++;
-          
-                if (number === randomNumber) {
-                  console.log(`${DICTIONARY.youGuessedIt}`); 
-                  correctGuesses++;
-                  isPlaying = false;
-                } else if (number < randomNumber) {
-                  console.log(`${DICTIONARY.tooLow}`);  
-                  incorrectGuesses++;
-                } else {
-                  console.log(`${DICTIONARY.tooHigh}`);  
-                  incorrectGuesses++;
-                }
-              }
-            }>
-            <script></script>
-
-
+  <script>
+  const button = document.querySelector("input");
+  const paragraph = document.querySelector("p");
+  
+  button.addEventListener("click", updateButton);
+  
+  function updateButton() {
+    if (button.value === "Start machine") {
+      button.value = "Stop machine";
+      paragraph.textContent = "The machine has started!";
+    } else {
+      button.value = "Start machine";
+      paragraph.textContent = "The machine is stopped.";
+    }
+  }
+</script>
 
 
 </body>
